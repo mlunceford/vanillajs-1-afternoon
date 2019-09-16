@@ -1,12 +1,15 @@
-console.log('you hate me')
+console.log('turds')
+let idInput = document.getElementById('idInput')
+let colorInput = document.getElementById('colorInput')
 
-const idInput = document.getElementById('idInput');
-const colorInput = document.getElementById('colorInput');
 
+console.log(idInput);
+console.log(colorInput);
 
-function setCard() {
+const setCard = () => {
     const card = document.getElementById(idInput.value)
-    card.style.color = colorInput.value
     console.log(card)
-    
+    card.style.color = colorInput.value
+    idInput.value = ''
+    colorInput.value = ''
 }

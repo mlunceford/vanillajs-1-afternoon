@@ -1,74 +1,84 @@
-console.log('you suck but cracks')
+console.log('hey there turd face')
 
-let board = [];
+const board = [];
+
+let play = (clickedId) => {
+    let playerSpan = document.getElementById('player')
+    let clickedElement = document.getElementById(clickedId)
+
+    if (playerSpan.innerText === 'X') {
+    playerSpan.innerText = 'O';
+    clickedElement.innerText = 'X';
+    board[clickedId] = 'X';
+  } else {
+    playerSpan.innerText = 'X';
+    clickedElement.innerText = 'O';
+    board[clickedId] = 'O';
+  }
+    console.log(board)
 
 
-function play(clickedId) {
-    let boardfull = true
-    const playerSpan = document.getElementById('player');
-    const clickedElement = document.getElementById(clickedId);
-    console.log(playerSpan.innertext)
-    if (playerSpan.innertext === 'X') {
-        playerSpan.innertext = 'O';
-        clickedElement.innerText = 'X';
-        board[clickedId] = 'X';
-    } else {
-        playerSpan.innertext = 'X';
-        clickedElement.innerText = 'O';
-        board[clickedId] = 'O';
-        
+    const tl = board[0]
+    const tc = board[1]
+    const tr = board[2]
+    const ml = board[3]
+    const mc = board[4]
+    const mr = board[5]
+    const bl = board[6]
+    const bc = board[7]
+    const br = board[8]
+    if (tl !== undefined && tl === tc && tl === tr) {
+        alert(`${tl} is the Winner`)
     }
+    if (tl !== undefined && tl === mc && tl === br) {
+        alert(`${tl} is the Winner`)
+    }
+    if (tl !== undefined && tl === ml && tl === bl) {
+        alert(`${tl} is the Winner`)
+    }
+    if (tc !== undefined && tc === mc && tc === bc) {
+        alert(`${tc} is the Winner`)
+    }
+    if (tr !== undefined && tr === mr && tr === br) {
+        alert(`${tr} is the Winner`)
+    }
+    if (ml !== undefined && ml === mc && ml === mr) {
+        alert(`${ml} is the Winner`)
+    }
+    if (bl !== undefined && bl === mc && bl == tr) {
+        alert(`${bl} is the Winner`)
+    }
+    if (bl !== undefined && bl === bc && bl == br) {
+        alert(`${bl} is the Winner`)
+    }
+
     
-    console.log(board);
 
-    const topLeft = board[0];
-    const topCenter = board[1];
-    const topRight = board[2];
-    const middleLeft = board[3];
-    const middleCenter = board[4];
-    const middleRight = board[5];
-    const bottomLeft = board[6];
-    const bottomCenter = board[7];
-    const bottomRight = board[8];
-
-    if (topLeft !== undefined && topLeft === topCenter && topRight === topLeft) {
-        alert(`${topLeft} is the winner`);
-        
+    let boardFull = true;
+  for (let i = 0; i <= 8; i++) {
+    if (board[i] === undefined) {
+      boardFull = false;
     }
-    if (topLeft !== undefined && topLeft === topCenter && topLeft === bottomRight) {
-        alert(`${topLeft} is the winner`);
-    }
-    if (topLeft !== undefined && topLeft === middleLeft && topleft === bottomLeft) {
-        alert(`${topLeft} is the winner`);
-    }
-    if (middleLeft !== undefined && middleLeft === middleCenter && middleLeft === middleRight) {
-        alert(`${middleLeft} is the winner`);
-    }
-    if (topCenter !== undefined && topCenter === middleCenter && topCenter === bottomCenter) {
-        alert(`${topCenter} is the winner`);
-    }
-    if (bottomLeft !== undefined && bottomLeft === bottomCenter && bottomLeft === bottomRight) {
-        alert(`${bottomLeft} is the winner`);
-    }
-    if (bottomLeft !== undefined && bottomLeft === middleCenter && bottomLeft === topRight) {
-        alert(`${bottomLeft} is the winner`);
-    }
-    if (topRight !== undefined && topRight === middleRight && topRight === bottomRight) {
-        alert(`${topRight} is the winner`);
-    }
-  
-
-    for( i = 0; i < 8; i++){
-        if (board[i] === undefined){
-            boardfull = false
-        }
-    }
-    if (boardfull === true){
-        alert('cats game')
-    }
-
-
+  }
+  if (boardFull === true) {
+    alert("Cat's game, there is no winner");
+  }
 }
+let reset = () => {
+    
+} 
+
+    // function resetBoard(){
+    //     let squares = document.getElementsByTagName('td')
+    //     var playerSpan = document.getElementById('player');
+    //     for(let i = 0; i < squares.length; i++){
+    //         squares[i].innerText = ''
+    //     }
+
+//     }
+
+
+// }
 
 
 
